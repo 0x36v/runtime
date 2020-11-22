@@ -279,6 +279,9 @@ build_Tests()
     fi
 
     if [[ "$__SkipNative" != 1 && "$__TargetOS" != "Browser" && "$__TargetOS" != "Android" ]]; then
+        echo Include folder
+        ls -l $__RepoRootDir/src/coreclr/inc
+        echo Include folder - end
         build_native "$__TargetOS" "$__BuildArch" "$__TestDir" "$__TryRunDir" "$__NativeTestIntermediatesDir" "CoreCLR test component"
 
         if [[ "$?" -ne 0 ]]; then
